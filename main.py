@@ -2,8 +2,6 @@
 # le \ permet de continuer la ligne précédentes à la ligne suivantes
 # les il signifie le programme
 
-import PIL
-
 """
 with PIL.Image.open("path.ext") as img:
     img.resize((x, y)) # reformate img au format (x, y)
@@ -25,7 +23,7 @@ with PIL.Image.open("path.ext") as img:
     # b est l'ordonné de l'axe haut, c est l'abscisse de l'axe droite, d est
     # l'ordonné de l'axe en bas de la nouvelle image
     # changer la lumineusité
-    img = PIL.ImageEnhance.Brightness(img).inhance(a) # a est une valeur
+    img = PIL.ImageEnhance.Brightness(img).enhance(a) # a est une valeur
     # placer un filtre EMBOSS, BLUR, CONTOUR, DETAIL, EDGE_ENHANCE,
     # EDGE_ENHANCE_MORE, EMBOSS, FIND_EDGES, SMOOTH_MORE, SHARPEN
     img = img.filter(ImageFilter.EMBOSS)
@@ -40,6 +38,9 @@ img1.paste(img, (x, y)) # (x, y) sont les coordonnés du point en haut à gauche
 
 """
 
-image = PIL.Image.open("images/13-photo.jpg")
 
-image.show()
+import PIL
+
+
+with PIL.Image.open("images/13-photo.jpg") as IMAGE:
+    IMAGE.show()
