@@ -43,4 +43,10 @@ import PIL
 
 
 with PIL.Image.open("images/13-photo.jpg") as IMAGE:
+    img = IMAGE.copy()
+    # renvoie l'image avec la gauche à droite et la droite à gauche
+    PIL.ImageOps.mirror(img).show()
+    # revoie l'image retourner
+    PIL.ImageOps.flip(img).show()
+    print(type(img))
     IMAGE.show()
