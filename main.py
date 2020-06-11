@@ -83,11 +83,9 @@ IMAGE = PIL.Image.open("images/13-photo.jpg")
 # revoie l'image retourner
 # re.flip(IMAGE).show()
 IMAGE2 = symetrie_horizontale(IMAGE)
-IMAGE2.save("images/photo-flip.jpg")
 IMAGE2.show()
 
 # renvoie l'image avec la gauche à droite et la droite à gauche
 # re.mirror(IMAGE).show()
 IMAGE3 = symetrie_vertical(IMAGE)
-IMAGE3.save("images/photo-mirror.jpg")
 IMAGE3.show()
