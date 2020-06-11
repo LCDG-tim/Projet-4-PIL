@@ -77,6 +77,17 @@ def symetrie_horizontale(img: PIL.Image.Image) -> PIL.Image.Image:
     return new_img
 
 
+def traitement_d_image(origin_image: PIL.Image.Image) -> PIL.Image.Image:
+    """fonction qui fait les changements d'image que tu veux
+    ----
+    :pre:
+        - None
+    :post:
+        - new_img est une instance de PIL.Image.Image
+    """
+    new_img = PIL.Image.new("RGB", (100, 100))
+    return new_img
+
 IMAGE = PIL.Image.open("images/13-photo.jpg")
 # IMAGE.show()
 
