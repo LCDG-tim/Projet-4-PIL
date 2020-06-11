@@ -42,11 +42,52 @@ img1.paste(img, (x, y)) # (x, y) sont les coordonnés du point en haut à gauche
 import PIL
 
 
-with PIL.Image.open("images/13-photo.jpg") as IMAGE:
-    img = IMAGE.copy()
-    # renvoie l'image avec la gauche à droite et la droite à gauche
-    PIL.ImageOps.mirror(img).show()
-    # revoie l'image retourner
-    PIL.ImageOps.flip(img).show()
-    print(type(img))
-    IMAGE.show()
+def symetrie_vertical(img: PIL.Image.Image) -> PIL.Image.Image:
+    """fonction qui retourne l'image symetrique par un axe vertical
+    """
+
+    assert isinstance(img, PIL.Image.Image), "img not in goog format"
+
+    longueur, hauteur = img.size
+    new_img = PIL.Image.new("RGB", (longueur, hauteur))
+
+    for x in range(longueur):
+        for y in range(hauteur):
+            new_img.putpixel((longueur - 1 - x, y), img.getpixel((x, y)))
+
+    assert isinstance(new_img, PIL.Image.Image), "new_img not in good format"
+
+    return new_img
+
+
+def symetrie_horizontale(img: PIL.Image.Image) -> PIL.Image.Image:
+    """fonction qui retourne l'image symetrique par un axe hrizontal
+    """
+
+    assert isinstance(img, PIL.Image.Image), "img not in goog format"
+
+    longueur, hauteur = img.size
+    new_img = PIL.Image.new("RGB", (longueur, hauteur))
+    for x in range(longueur):
+        for y in range(hauteur):
+            new_img.putpixel((x, hauteur - 1 - y), img.getpixel((x, y)))
+
+    assert isinstance(new_img, PIL.Image.Image), "new_img not in good format"
+
+    return new_img
+
+
+IMAGE = PIL.Image.open("images/13-photo.jpg")
+# IMAGE.show()
+
+# revoie l'image retourner
+# re.flip(IMAGE).show()
+IMAGE2 = symetrie_horizontale(IMAGE)
+IMAGE2.save("images/photo-flip.jpg")
+IMAGE2.show()
+
+# renvoie l'image avec la gauche à droite et la droite à gauche
+# re.mirror(IMAGE).show()
+IMAGE3 = symetrie_vertical(IMAGE)
+IMAGE3.save("images/photo-mirror.jpg")
+IMAGE3.show()
