@@ -180,20 +180,5 @@ IMAGE3 = symetrie_vertical(IMAGE)
 IMAGE3.show()
 """
 
-img = traitement_d_image(IMAGE, flipped=True)
-img.save("images/img1.jpg")
-
 img2 = traitement_d_image(IMAGE, mirror=True)
-img.save("images/img2.jpg")
-
-img3 = traitement_d_image(IMAGE, grey_nuance=True)
-img3.save("images/img3.jpg")
-
-img4 = traitement_d_image(IMAGE, negate=True)
-img4.save("images/img4.jpg")
-
-img5 = traitement_d_image(IMAGE, flipped=True, mirror=True)
-img5.save("images/img5.jpg")
-
-img6 = traitement_d_image(IMAGE, negate=True, grey_nuance=True)
-img6.save("images/img6.jpg")
+img2.save("images/img2.jpg")
